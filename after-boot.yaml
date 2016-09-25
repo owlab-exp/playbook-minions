@@ -2,12 +2,14 @@
 # This playbook does somethings after minions' boot
 - hosts: minions
   tasks:
-      #  - name: Mount the working disk
-      #    become: true
-      #    command: mount /dev/sda1 /working
+  - name: Mount the working disk
+    become: true
+    command: mount /dev/sda1 /working
+
   - name: Add swap file
     become: true
     command: swapon /working/swapfile
-      #  - name: Start docker daemon
-      #    become: true
-      #    command: systemctl start docker
+
+  - name: Start docker daemon
+    become: true
+    command: systemctl start docker

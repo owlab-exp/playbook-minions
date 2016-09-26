@@ -1,0 +1,13 @@
+---
+# This playbook does start a swarm cluster
+- hosts: mini-master
+  tasks:
+  - name: Start a manager
+#    command: docker run -d --name swarm-manager -p 4000:2375 owlab/swarm-arm64 manage -H :2375 token://acdda5dfe931cdb225b2722b780bc59f
+    command: docker start swarm-manager
+- hosts: mini-worker
+  tasks:
+  - name: Join swarm node
+    become: false
+#    command: docker run -d --name swarm-node owlab/swarm-arm64 join --addr={{ ansible_default_ipv4.address }}:2375 token://acdda5dfe931cdb225b2722b780bc59f
+    command: docker start swarm-node

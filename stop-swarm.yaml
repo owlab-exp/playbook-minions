@@ -1,0 +1,12 @@
+---
+# This playbook stops a swarm cluster
+- hosts: mini-master
+  tasks:
+  - name: Stop swarm manager
+    become: false
+    command: docker stop swarm-manager
+- hosts: mini-worker
+  tasks:
+  - name: Stop swarm node
+    become: false
+    command: docker stop swarm-node

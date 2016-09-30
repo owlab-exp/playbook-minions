@@ -1,0 +1,64 @@
+---
+# This playbook installs docker binaries
+- hosts: mini-master
+  tasks:
+      - name: Download
+      #  - name: Install python-apt and aptitude
+      #    become: true
+      #    apt: name=python-apt state=present
+      #
+      #  - name: Install python-apt and aptitude
+      #    become: true
+      #    apt: name=aptitude state=present
+      #
+      #  - name: Remove docker engine
+      #    become: true
+      #    apt: name=docker-engine state=absent
+      #
+      #  - name: Make temporary directory
+      #    file: path=/home/linaro/temp state=directory mode=0755
+      #
+      #  - name: Unarchive package tar
+      #    unarchive: src=docker-arm64.1.12.1.tgz dest=/home/linaro/temp
+
+      #    - name: Select files to move to /usr/bin
+      #      shell: ls /home/linaro/temp/docker
+      #      register: file_name
+      #
+      #    - name: Move docker binaries
+      #      become: true
+      #      #      command: mv /home/linaro/temp/docker/* /usr/bin/
+      #      command: mv /home/linaro/temp/docker/{{ item }} /usr/bin/
+      #      with_items: file_name.stdout_lines
+      #
+      #    - name: Create /etc/default/docker
+      #      become: true
+      #      command: mv /home/linaro/temp/systemd/etc_default_docker /etc/default/docker
+      #
+      #    - name: Create /lib/systemd/system/docker.socket
+      #      become: true
+      #      command: mv /home/linaro/temp/systemd/lib_systemd_system_docker.socket /lib/systemd/system/docker.socket
+      #
+      #    - name: Create /lib/systemd/system/docker.service
+      #      become: true
+      #      command: mv /home/linaro/temp/systemd/lib_systemd_system_docker.service /lib/systemd/system/docker.service
+      #
+      #    - name: Rename /etc/systemd/system/docker.socket
+      #      become: true
+      #      command: mv /etc/systemd/system/docker.socket /etc/systemd/system/docker.socket.bak
+      #
+      #    - name: Rename /etc/systemd/system/docker.service
+      #      become: true
+      #      command: mv /etc/systemd/system/docker.service /etc/systemd/system/docker.service.bak
+      #
+      #    - name: Sym link /etc/systemd/system/docker.socket
+      #      become: true
+      #      command: ln -s /lib/systemd/system/docker.socket /etc/systemd/system/docker.socket
+      #
+      #    - name: Sym link /etc/systemd/system/docker.service
+      #      become: true
+      #      command: ln -s /lib/systemd/system/docker.service /etc/systemd/system/docker.service
+      #
+      #    - name: Systemctl daemon-reload
+      #      become: true
+      #      command: systemctl daemon-reload
